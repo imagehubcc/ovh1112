@@ -4487,6 +4487,7 @@ def get_ipmi_console(service_name):
         import time
         max_retries = 10
         retry_count = 0
+        task_completed = False
         
         while retry_count < max_retries:
             time.sleep(2)  # 等待2秒
@@ -4499,6 +4500,7 @@ def get_ipmi_console(service_name):
             
             if status == 'done':
                 add_log("INFO", f"[IPMI] 任务完成！", "server_control")
+                task_completed = True
                 break
             elif status in ['cancelled', 'customerError', 'ovhError']:
                 add_log("ERROR", f"[IPMI] 任务失败: {status}", "server_control")
@@ -4507,8 +4509,9 @@ def get_ipmi_console(service_name):
                     "error": f"IPMI访问任务失败: {status}"
                 }), 500
         
-        if retry_count >= max_retries:
-            add_log("ERROR", f"[IPMI] 任务超时", "server_control")
+        # ✅ 检查任务是否真的完成，而不是检查计数器
+        if not task_completed:
+            add_log("ERROR", f"[IPMI] 任务超时（{max_retries * 2}秒内未完成）", "server_control")
             return jsonify({
                 "success": False,
                 "error": "IPMI访问任务超时"
