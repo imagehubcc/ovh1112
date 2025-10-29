@@ -40,7 +40,7 @@ RUN apt-get update && \
 
 # 复制后端依赖文件并安装
 COPY backend/requirements.txt ./backend/
-RUN pip3 install --no-cache-dir -r backend/requirements.txt
+RUN pip3 install --no-cache-dir --break-system-packages -r backend/requirements.txt
 
 # 复制后端源码
 COPY backend/*.py ./backend/
