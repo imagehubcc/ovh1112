@@ -5,12 +5,7 @@ services:
     ports:
       - "5000:5000"    # 后端 API
       - "8080:8080"    # 前端界面
-    environment:
-      # 从根目录 .env 文件读取，或使用默认值
-      - API_SECRET_KEY=${API_SECRET_KEY:-ovh-phantom-sniper-2024-secret-key}
-      - PORT=${PORT:-5000}
-      - DEBUG=${DEBUG:-false}
-      - ENABLE_API_KEY_AUTH=${ENABLE_API_KEY_AUTH:-true}
+    # 不设置环境变量，直接读取挂载的 backend/.env 文件
     volumes:
       # 挂载配置文件（可在容器外直接修改）
       - ./backend/.env:/app/backend/.env
