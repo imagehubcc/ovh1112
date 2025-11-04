@@ -20,7 +20,6 @@ const Sidebar = ({ onToggle, isOpen }: SidebarProps) => {
     { path: "/queue", icon: "clipboard-list", label: "抢购队列" },
     { path: "/monitor", icon: "bell", label: "服务器监控" },
     { path: "/vps-monitor", icon: "cloud", label: "VPS补货通知" },
-    { path: "/config-sniper", icon: "target", label: "配置绑定狙击" },
     { path: "/server-control", icon: "terminal", label: "服务器控制" },
     { path: "/account-management", icon: "user", label: "账户管理" },
     { path: "/history", icon: "clock", label: "抢购历史" },
@@ -144,13 +143,6 @@ const Sidebar = ({ onToggle, isOpen }: SidebarProps) => {
                 {item.icon === "cloud" && (
                   <>
                     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                  </>
-                )}
-                {item.icon === "target" && (
-                  <>
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <circle cx="12" cy="12" r="6"></circle>
-                    <circle cx="12" cy="12" r="2"></circle>
                   </>
                 )}
                 {item.icon === "terminal" && (
