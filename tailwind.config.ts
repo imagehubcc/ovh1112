@@ -197,6 +197,9 @@ export default {
 			},
 			boxShadow: {
 				'neon': '0 0 5px theme("colors.cyber.accent"), 0 0 20px theme("colors.cyber.accent-glow")',
+				'neon-sm': '0 0 3px theme("colors.cyber.accent"), 0 0 10px theme("colors.cyber.accent-glow")',
+				'neon-md': '0 0 5px theme("colors.cyber.accent"), 0 0 20px theme("colors.cyber.accent-glow")',
+				'neon-lg': '0 0 10px theme("colors.cyber.accent"), 0 0 30px theme("colors.cyber.accent-glow"), 0 0 50px theme("colors.cyber.accent-glow")',
 				'neon-strong': '0 0 10px theme("colors.cyber.accent"), 0 0 30px theme("colors.cyber.accent-glow")',
 				'neon-inner': 'inset 0 0 5px theme("colors.cyber.accent"), inset 0 0 10px theme("colors.cyber.accent-glow")',
 				'neon-text': '0 0 2px theme("colors.cyber.accent"), 0 0 5px theme("colors.cyber.accent-glow")',

@@ -275,8 +275,8 @@ const ServerControlPage: React.FC = () => {
   const [loadingInterventions, setLoadingInterventions] = useState(false);
   
   // 计划维护功能
-  const [plannedInterventions, setPlannedInterventions] = useState<any[]>([]);
-  const [loadingPlannedInterventions, setLoadingPlannedInterventions] = useState(false);
+  // const [plannedInterventions, setPlannedInterventions] = useState<any[]>([]);
+  // const [loadingPlannedInterventions, setLoadingPlannedInterventions] = useState(false);
 
   // 网络接口功能（物理网卡）
   const [networkInterfaces, setNetworkInterfaces] = useState<any[]>([]);
@@ -1899,20 +1899,20 @@ const ServerControlPage: React.FC = () => {
   };
 
   // 计划维护：获取列表
-  const fetchPlannedInterventions = async (serviceName: string) => {
-    setLoadingPlannedInterventions(true);
-    try {
-      const response = await api.get(`/server-control/${serviceName}/planned-interventions`);
-      if (response.data.success) {
-        setPlannedInterventions(response.data.plannedInterventions || []);
-      }
-    } catch (error: any) {
-      console.error('获取计划维护失败:', error);
-      setPlannedInterventions([]);
-    } finally {
-      setLoadingPlannedInterventions(false);
-    }
-  };
+  // const fetchPlannedInterventions = async (serviceName: string) => {
+  //   setLoadingPlannedInterventions(true);
+  //   try {
+  //     const response = await api.get(`/server-control/${serviceName}/planned-interventions`);
+  //     if (response.data.success) {
+  //       setPlannedInterventions(response.data.plannedInterventions || []);
+  //     }
+  //   } catch (error: any) {
+  //     console.error('获取计划维护失败:', error);
+  //     setPlannedInterventions([]);
+  //   } finally {
+  //     setLoadingPlannedInterventions(false);
+  //   }
+  // };
 
   // 网络接口：获取物理网卡列表
   const fetchNetworkInterfaces = async (serviceName: string) => {
@@ -2034,7 +2034,7 @@ const ServerControlPage: React.FC = () => {
       fetchIPs(selectedServer.serviceName);
       fetchServiceInfo(selectedServer.serviceName);
       fetchInterventions(selectedServer.serviceName);
-      fetchPlannedInterventions(selectedServer.serviceName);
+      // fetchPlannedInterventions(selectedServer.serviceName);
       fetchNetworkInterfaces(selectedServer.serviceName);
       fetchMrtgData(selectedServer.serviceName);  // 初始加载MRTG数据
     }
@@ -2062,11 +2062,19 @@ const ServerControlPage: React.FC = () => {
             </div>
           </div>
           <button
-            onClick={() => fetchServers(true)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (!isLoading && !isRefreshing) {
+                fetchServers(true);
+              }
+            }}
             disabled={isLoading || isRefreshing}
-            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-cyber-accent text-white rounded-lg hover:bg-cyber-accent/80 disabled:opacity-50 flex items-center gap-2 transition-all shadow-neon-sm text-xs sm:text-sm">
+            className="cyber-button text-xs sm:text-sm flex items-center gap-2 cursor-pointer"
+            type="button"
+          >
             <RefreshCw className={`w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 ${isRefreshing ? 'animate-spin' : ''}`} />
-            <span className="min-w-[3.5rem]">{isRefreshing ? '刷新中...' : '刷新'}</span>
+            <span className="min-w-[2.5rem]">刷新</span>
           </button>
         </div>
 
@@ -2519,7 +2527,7 @@ const ServerControlPage: React.FC = () => {
               </div>
 
               {/* 计划维护 */}
-              <div className="cyber-card">
+              {/* <div className="cyber-card">
                 <h3 className="text-lg font-semibold text-cyber-text mb-4 flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-blue-400" />
                   计划维护 <span className="text-xs text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">BETA</span>
@@ -2569,7 +2577,7 @@ const ServerControlPage: React.FC = () => {
                     <p className="text-cyber-muted text-sm">暂无计划维护</p>
                   </div>
                 )}
-              </div>
+              </div> */}
 
               {/* 网络接口（物理网卡） */}
               <div className="cyber-card">

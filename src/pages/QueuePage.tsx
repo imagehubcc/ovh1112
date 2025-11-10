@@ -300,11 +300,11 @@ const QueuePage = () => {
           disabled={isLoading || isRefreshing}
         >
           <RefreshCwIcon size={12} className={`mr-1 flex-shrink-0 ${isRefreshing ? 'animate-spin' : ''}`} />
-          <span className="min-w-[3.5rem]">{isRefreshing ? '刷新中...' : '刷新'}</span>
+          <span className="min-w-[2.5rem]">刷新</span>
         </button>
         <button
           onClick={() => setShowClearConfirm(true)}
-          className="cyber-button text-xs flex items-center bg-red-500/20 hover:bg-red-500/30 text-red-400 border-red-500/30 justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+          className="cyber-button text-xs flex items-center bg-red-900/30 border-red-700/40 text-red-300 hover:bg-red-800/40 hover:border-red-600/50 hover:text-red-200 justify-center disabled:opacity-40 disabled:cursor-not-allowed"
           disabled={isLoading || queueItems.length === 0}
         >
           <Trash2Icon size={12} className="mr-1" />
@@ -622,13 +622,13 @@ const QueuePage = () => {
                   <div className="flex gap-3 justify-end">
                     <button
                       onClick={() => setShowClearConfirm(false)}
-                      className="px-4 py-2 rounded border border-cyber-accent/30 text-cyber-muted hover:text-cyber-text hover:bg-cyber-grid/50 transition-all"
+                      className="cyber-button px-4 py-2"
                     >
                       取消
                     </button>
                     <button
                       onClick={clearAllQueue}
-                      className="px-4 py-2 rounded bg-red-500/20 hover:bg-red-500/30 text-red-400 border border-red-500/50 hover:border-red-500/70 transition-all shadow-neon-sm hover:shadow-neon-md"
+                      className="cyber-button px-4 py-2 bg-red-900/30 border-red-700/40 text-red-300 hover:bg-red-800/40 hover:border-red-600/50 hover:text-red-200"
                     >
                       确认清空
                     </button>

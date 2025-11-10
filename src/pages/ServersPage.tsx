@@ -1850,7 +1850,7 @@ const ServersPage = () => {
               <button
                 onClick={() => fetchServers(true)}
                 disabled={isLoading || isRefreshing}
-                className="px-2 sm:px-3 py-1 sm:py-1.5 bg-cyber-accent/10 hover:bg-cyber-accent/20 text-cyber-accent border border-cyber-accent/30 hover:border-cyber-accent/50 rounded-md transition-all duration-200 text-[10px] sm:text-xs font-medium shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1 sm:gap-1.5 whitespace-nowrap active:scale-95"
+                className="cyber-button text-[10px] sm:text-xs flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5"
                 title="刷新服务器列表"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`${isRefreshing ? 'animate-spin' : ''} sm:w-3.5 sm:h-3.5 flex-shrink-0`}>
@@ -1858,7 +1858,7 @@ const ServersPage = () => {
                   <polyline points="23 20 23 14 17 14"></polyline>
                   <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
                 </svg>
-                <span className="min-w-[3rem] text-left">{isRefreshing ? '刷新中...' : '刷新'}</span>
+                <span className="min-w-[2.5rem] text-center">刷新</span>
               </button>
             </div>
           </div>

@@ -358,7 +358,7 @@ const OVHAvailabilityPage = () => {
               className="flex items-center gap-2 text-xs sm:text-sm"
             >
               <RefreshCw className={`w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 ${isRefreshing ? 'animate-spin' : ''}`} />
-              <span className="min-w-[3.5rem]">{isRefreshing ? '刷新中...' : isLoading ? '加载中' : '刷新'}</span>
+              <span className="min-w-[2.5rem]">刷新</span>
             </Button>
           </div>
         </div>

@@ -318,10 +318,10 @@ const MonitorPage = () => {
               loadMonitorStatus();
             }}
             disabled={isRefreshing}
-            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-cyber-accent/10 hover:bg-cyber-accent/20 text-cyber-accent border border-cyber-accent/30 rounded-md transition-all flex items-center gap-2 text-xs sm:text-sm font-medium shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+            className="cyber-button text-xs sm:text-sm flex items-center gap-2"
           >
             <RefreshCw size={isMobile ? 14 : 16} className={`flex-shrink-0 ${isRefreshing ? 'animate-spin' : ''}`} />
-            <span className="min-w-[3.5rem]">{isRefreshing ? '刷新中...' : '刷新'}</span>
+            <span className="min-w-[2.5rem]">刷新</span>
           </button>
         </div>
 
@@ -353,7 +353,7 @@ const MonitorPage = () => {
             {subscriptions.length > 0 && (
               <button
                 onClick={handleClearAll}
-                className="px-3 py-1.5 bg-red-500/20 hover:bg-red-500/30 text-red-400 border border-red-500/40 hover:border-red-500/60 rounded-md transition-all flex items-center gap-1.5 text-sm font-medium shadow-sm hover:shadow-md"
+                className="cyber-button text-sm flex items-center gap-1.5 bg-red-900/30 border-red-700/40 text-red-300 hover:bg-red-800/40 hover:border-red-600/50 hover:text-red-200"
               >
                 <Trash2 size={14} />
                 清空全部
@@ -361,7 +361,7 @@ const MonitorPage = () => {
             )}
             <button
               onClick={() => setShowAddForm(!showAddForm)}
-              className="px-3 py-1.5 bg-cyber-primary hover:bg-cyber-primary-dark text-white border border-cyber-primary/40 hover:border-cyber-primary rounded-md transition-all flex items-center gap-1.5 text-sm font-medium shadow-sm hover:shadow-md"
+              className="cyber-button text-sm flex items-center gap-1.5 bg-cyber-accent/20 border-cyber-accent/40 text-cyber-accent hover:bg-cyber-accent/30 hover:border-cyber-accent/60 hover:text-cyber-accent"
             >
               <Plus size={14} />
               添加订阅
@@ -432,14 +432,14 @@ const MonitorPage = () => {
               <div className="flex gap-3">
                 <button 
                   type="submit" 
-                  className="flex-1 px-4 py-2.5 bg-cyber-primary hover:bg-cyber-primary-dark text-white border border-cyber-primary/40 hover:border-cyber-primary rounded-md transition-all font-medium shadow-sm hover:shadow-md"
+                  className="cyber-button flex-1 px-4 py-2.5 bg-cyber-accent/20 border-cyber-accent/40 text-cyber-accent hover:bg-cyber-accent/30 hover:border-cyber-accent/60 hover:text-cyber-accent"
                 >
                   确认添加
                 </button>
                 <button
                   type="button"
                   onClick={() => setShowAddForm(false)}
-                  className="flex-1 px-4 py-2.5 bg-cyber-grid/10 hover:bg-cyber-grid/20 text-cyber-text border border-cyber-accent/30 hover:border-cyber-accent/50 rounded-md transition-all font-medium shadow-sm hover:shadow-md"
+                  className="cyber-button flex-1 px-4 py-2.5"
                 >
                   取消
                 </button>

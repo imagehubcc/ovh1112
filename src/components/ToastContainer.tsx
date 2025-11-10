@@ -75,7 +75,7 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
               onClick={() => handleConfirm(false)}
             />
             <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-              <div className="bg-cyber-dark border-2 border-cyber-accent/50 rounded-lg p-6 max-w-md w-full shadow-neon-lg">
+              <div className="bg-cyber-dark border-2 border-cyber-accent/50 rounded-lg p-6 max-w-md w-full">
                 <h3 className="text-xl font-bold text-cyber-text mb-2">
                   {confirmDialog.options.title}
                 </h3>
@@ -87,13 +87,13 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
                 <div className="flex gap-3 justify-end">
                   <button
                     onClick={() => handleConfirm(false)}
-                    className="px-4 py-2 rounded border border-cyber-accent/30 text-cyber-muted hover:text-cyber-text hover:bg-cyber-grid/50 transition-all"
+                    className="cyber-button px-4 py-2"
                   >
                     {confirmDialog.options.cancelText || '取消'}
                   </button>
                   <button
                     onClick={() => handleConfirm(true)}
-                    className="px-4 py-2 rounded bg-cyber-accent text-white hover:bg-cyber-accent/80 shadow-neon-sm hover:shadow-neon-md transition-all"
+                    className="cyber-button px-4 py-2 bg-cyber-accent/20 border-cyber-accent/40 text-cyber-accent hover:bg-cyber-accent/30 hover:border-cyber-accent/60 hover:text-cyber-accent"
                   >
                     {confirmDialog.options.confirmText || '确定'}
                   </button>

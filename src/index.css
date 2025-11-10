@@ -277,17 +277,12 @@
   }
   
   .cyber-button {
-    @apply relative px-4 py-2 bg-cyber-grid border border-cyber-accent/50 text-cyber-text 
-           font-cyber uppercase tracking-wider text-sm
-           hover:bg-cyber-accent/20 hover:border-cyber-accent hover:shadow-neon
-           transition-all duration-300 overflow-hidden;
-  }
-  
-  .cyber-button::before {
-    content: '';
-    @apply absolute top-0 left-0 w-full h-full opacity-0 
-           bg-gradient-to-r from-cyber-accent/0 via-cyber-accent/30 to-cyber-accent/0
-           hover:opacity-100 animate-flow-right pointer-events-none;
+    @apply relative px-3 py-2 rounded-md text-sm font-medium
+           bg-slate-800/50 border border-slate-700/50 text-slate-200
+           hover:bg-slate-700/50 hover:border-slate-600/50 hover:text-white
+           active:scale-[0.97]
+           transition-all duration-150 ease-out
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100;
   }
   
   .cyber-input {
